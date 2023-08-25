@@ -5,6 +5,32 @@
 ```html
 <link itemprop=prop1  be-sides='
     Negate to prop2.
+' href=https://schema.org/True>
+```
+
+generates:
+
+```html
+<link itemprop=prop1  be-sides='
+    Negate to prop2.
+' href=https://schema.org/True>
+<link itemprop=prop2 href=https://schema.org/False>
+```
+
+Other actions:
+
+| Action     | What it does                      |
+|------------|-----------------------------------|
+| toggleTo   | toggles peer itemprop to opposite |
+| dispatch   | fires event from host             |
+
+etc (copied from xtal-element/types.d.ts)
+
+Lots of (potential) examples:
+
+```html
+<link itemprop=prop1  be-sides='
+    Negate to prop2.
     Negate to prop2 after 40 ms.
     Toggle to prop2.
     Toggle to prop2 after 40 ms.
@@ -18,23 +44,5 @@
     Dispatch.
     Clone to prop2.
     Increment to prop2. //Use be counted on target element to specify particulars
-' itemtype=https://schema.org/Boolean href=https://schema.org/True>
+' href=https://schema.org/True>
 ```
-
-generates:
-
-```html
-<link itemprop=prop1  be-value-added='{
-    "negateTo": "prop2"
-}' itemtype=https://schema.org/Boolean href=https://schema.org/True>
-<link itemprop=prop2 itemtype=https://schema.org/Boolean href=https://schema.org/False>
-```
-
-Other actions:
-
-| Action     | What it does                      |
-|------------|-----------------------------------|
-| toggleTo   | toggles peer itemprop to opposite |
-| dispatch   | fires event from host             |
-
-etc (copied from xtal-element/types.d.ts)
